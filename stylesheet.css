@@ -1,0 +1,176 @@
+<style>
+    body {background-color: whitesmoke;}
+    .grid-container {
+        display: grid;
+        grid-template-columns: 0.1fr 2.8fr 0.1fr;
+        grid-template-rows: 0.2fr, 1fr, 0.6fr;
+        grid-template-areas:
+            ". . ."
+            ". . ."
+            ". . .";
+    }
+    .grid-item {
+        border: 1px solid rgba(0, 0, 0, 0.8);
+        background-color: whitesmoke;
+        padding: 20px;
+        font-size: 30px;
+        text-align: center;
+        justify-content: center;
+        font-family: 'Lato', sans-serif;
+        font-style: normal;
+        font-weight: 200;
+        color: rgba(87, 87, 87, 0.85);
+    }
+    h1 {     
+        font-style: normal;
+        font-weight: 200;
+        font-size: 20;
+        color: rgba(87, 87, 87, 0.85);
+        display: flex;
+        font-family: 'freight-sans-pro', sans-serif;
+        justify-content: center;
+        letter-spacing: 4px;
+        line-height: 27.2px;
+        max-width: 100%;
+        min-width: 0px;
+        opacity: 1;
+        word-break: keep-all;
+        padding: 30px 0px 10px 0px;
+        line-height: 27.2px;
+        margin: 0px;
+    }
+    #nav {
+        list-style: none;
+        margin: 0;
+        padding: 35px 0px 0px 0px;
+        text-align: center;
+        justify-content: center;
+        font-size: 10;
+        font-style: normal;
+        font-weight: 300;
+        letter-spacing: 1px;
+        max-width: 100%;
+        min-width: 0px;
+        word-break: keep-all;
+    }
+    #nav li {
+        border-width:1px 0;
+        padding-right: 20px;
+        display:inline-flex;
+        font-family: 'freight-sans-pro', sans-serif;
+    }
+    #nav a {
+        display: inline-flex;
+        color: rgba(87, 87, 87, 0.85);
+        padding:10px;
+        text-decoration: none;
+    }
+    #slideshow { 
+        position: relative;
+        margin: 50px auto; 
+        width: 100%;
+        height: auto;
+        padding: 10px;  
+    }
+    #slideshow > div {
+        
+        width: 100%;
+        height: auto;
+        padding: 10px 0px 0px 0px;
+        max-width: 625px;
+    }
+    .fa {
+        padding: 10px 10px 10px 10px;
+        font-size: 30px;
+        width: 30px;
+        text-align: center;
+        text-decoration: none;
+        border-radius: 50%;
+    }
+    .fa:hover {
+        opacity: 0.7;
+    }
+
+    .fa-facebook {
+        background: #3B5998;
+        color: white;
+    }
+
+    .fa-twitter {
+        background: #55ACEE;
+        color: white;
+    }
+
+    .fa-google {
+        background: #dd4b39;
+        color: white;
+    }
+
+    .fa-linkedin {
+        background: #007bb5;
+        color: white;
+    }
+    
+    .fa-github {
+        background: #24292e;
+        color: white;
+    }
+
+    .fa-youtube {
+        background: #bb0000;
+        color: white;
+    }
+
+    .fa-instagram {
+        background: #125688;
+        color: white;
+    }
+
+    .fa-snapchat-ghost {
+        background: #fffc00;
+        color: white;
+        text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    }
+
+    .fa-skype {
+        background: #00aff0;
+        color: white;
+    }
+    .fa-reddit {
+        background: #ff5700;
+        color: white;
+    }
+    
+    h6 {
+        font-style: normal;
+        font-weight: 200;
+        font-size: 16;
+        color: rgba(87, 87, 87, 0.85);
+        display: flex;
+        font-family: 'freight-sans-pro', sans-serif;
+        justify-content: center;
+        letter-spacing: 4px;
+        line-height: 27.2px;
+        max-width: 100%;
+        min-width: 0px;
+        opacity: 1;
+        word-break: keep-all;
+    }
+    p {
+        font-weight: 300;
+        font-size: 12;
+        color: rgba(87, 87, 87, 0.85);
+        display: flex;
+        font-family: 'freight-sans-pro', sans-serif;
+        justify-content: center;
+        line-height: 27.2px;
+        max-width: 100%;
+        min-width: 0px;
+        opacity: 1;
+        word-break: keep-all;
+    }
+    
+    footer {
+        text-align: end;
+    }
+</style>
