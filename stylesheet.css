@@ -2,8 +2,8 @@
     body {background-color: whitesmoke;}
     .grid-container {
         display: grid;
-        grid-template-columns: 0.1fr 2.8fr 0.1fr;
-        grid-template-rows: 0.2fr, 1fr, 0.6fr;
+        grid-template-columns: 0.1fr 0.8fr 0.1fr;
+        grid-template-rows: 0.2fr, 0.8fr, 0.6fr;
         grid-template-areas:
             ". . ."
             ". . ."
@@ -15,7 +15,6 @@
         padding: 20px;
         font-size: 30px;
         text-align: center;
-        justify-content: center;
         font-family: 'Lato', sans-serif;
         font-style: normal;
         font-weight: 200;
@@ -65,20 +64,22 @@
         padding:10px;
         text-decoration: none;
     }
-    #slideshow { 
-        position: relative;
-        margin: 50px auto; 
+
+    #slideshow {
         width: 100%;
-        height: auto;
-        padding: 10px;  
+        height: 400px;
+        object-fit: cover;
+        overflow: hidden;
     }
+
     #slideshow > div {
-        
         width: 100%;
         height: auto;
-        padding: 10px 0px 0px 0px;
-        max-width: 625px;
+        object-fit: cover;
+        overflow: hidden;
     }
+
+
     .fa {
         padding: 10px 10px 10px 10px;
         font-size: 30px;
