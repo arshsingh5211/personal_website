@@ -10,7 +10,6 @@
             ". . .";
     }
     .grid-item {
-        border: 1px solid rgba(0, 0, 0, 0.8);
         background-color: whitesmoke;
         padding: 20px;
         font-size: 30px;
@@ -159,14 +158,13 @@
     }
     p {
         font-weight: 300;
+        margin: auto;
         font-size: 12;
         color: rgba(87, 87, 87, 0.85);
         display: flex;
         font-family: 'freight-sans-pro', sans-serif;
-        justify-content: center;
         line-height: 27.2px;
-        max-width: 100%;
-        min-width: 0px;
+        max-width: 75%;
         opacity: 1;
         word-break: keep-all;
     }
