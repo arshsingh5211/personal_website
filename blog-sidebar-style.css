@@ -1,0 +1,370 @@
+<style>
+
+    body {
+        font-family: 'freight-sans-pro', sans-serif;
+        background: whitesmoke;
+    }
+
+    p {
+        font-family: 'freight-sans-pro', sans-serif;
+        font-size: 1.1em;
+        font-weight: 300;
+        line-height: 1.7em;
+        color: whitesmoke;
+    }
+
+    a, a:hover, a:focus {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+
+    #sidebar {
+        /* don't forget to add all the previously mentioned styles here too */
+        background: rgba(87, 87, 87, 0.85);
+        color: whitesmoke;
+        transition: all 0.3s;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 20px;
+        background: rgba(95, 95, 95, 0.85);
+    }
+
+    #sidebar ul.components {
+        padding: 20px 0;
+        border-bottom: 1px solid rgba(95, 95, 95, 0.85);
+    }
+
+    #sidebar ul p {
+        color: whitesmoke;
+        padding: 10px;
+    }
+
+    #sidebar ul li a {
+        padding: 10px;
+        font-size: 1.1em;
+        display: block;
+    }
+    #sidebar ul li a:hover {
+        color: rgba(95, 95, 95, 0.85);
+        background: whitesmoke;
+    }
+
+    #sidebar ul li.active > a, a[aria-expanded="true"] {
+        color: #fff;
+        background: rgba(95, 95, 95, 0.85);
+    }
+    ul ul a {
+        font-size: 0.9em !important;
+        padding-left: 30px !important;
+        background: rgba(95, 95, 95, 0.85);
+    }
+    .wrapper {
+        display: flex;
+        align-items: stretch;
+        perspective: 1500px; 
+    }
+
+    #sidebar {
+        min-width: 250px;
+        max-width: 250px;
+        min-height: 100vh;
+        transform-origin: center left; /* Set the transformed position of sidebar to center left side. */
+    }
+
+    /* Shrinking the sidebar from 250px to 80px and center aligining its content*/
+    #sidebar.active {
+        min-width: 80px;
+        max-width: 80px;
+        text-align: center;
+        transform: rotateY(100deg); /* Rotate sidebar vertically by 100 degrees. */
+    }
+    /* Toggling the sidebar header content, hide the big heading [h3] and showing the small heading [strong] and vice versa*/
+    #sidebar .sidebar-header strong {
+        display: none;
+    }
+    #sidebar.active .sidebar-header h3 {
+        display: none;
+    }
+    #sidebar.active .sidebar-header strong {
+        display: block;
+    }
+
+    #sidebar ul li a {
+        text-align: left;
+    }
+
+    #sidebar.active ul li a {
+        padding: 20px 10px;
+        text-align: center;
+        font-size: 0.85em;
+    }
+
+    #sidebar.active ul li a i {
+        margin-right:  0;
+        display: block;
+        font-size: 1.8em;
+        margin-bottom: 5px;
+    }
+
+    /* Same dropdown links padding*/
+    #sidebar.active ul ul a {
+        padding: 10px !important;
+    }
+
+    /* Changing the arrow position to bottom center position, 
+       translateX(50%) works with right: 50% 
+       to accurately  center the arrow */
+    #sidebar.active .dropdown-toggle::after {
+        top: auto;
+        bottom: 10px;
+        right: 50%;
+        -webkit-transform: translateX(50%);
+        -ms-transform: translateX(50%);
+        transform: translateX(50%);
+    }
+
+    a[data-toggle="collapse"] {
+        position: relative;
+    }
+
+    .dropdown-toggle::after {
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 20px;
+        transform: translateY(-50%);
+    }
+
+    @media (max-width: 768px) {
+         /* Reversing the behavior of the sidebar: 
+       it'll be rotated vertically and off canvas by default, 
+       collapsing in on toggle button click with removal of 
+       the vertical rotation.   */
+        #sidebar {
+            margin-left: -250px;
+            transform: rotateY(100deg);
+        }
+        #sidebar.active {
+            margin-left: 0;
+            transform: none;
+        }
+
+        /* Reversing the behavior of the bars: 
+           Removing the rotation from the first,
+           last bars and reappear the second bar on default state, 
+           and giving them a vertical margin */
+        #sidebarCollapse span:first-of-type,
+        #sidebarCollapse span:nth-of-type(2),
+        #sidebarCollapse span:last-of-type {
+            transform: none;
+            opacity: 1;
+            margin: 5px auto;
+        }
+
+        /* Removing the vertical margin and make the first and last bars rotate again when the sidebar is open, hiding the second bar */
+        #sidebarCollapse.active span {
+            margin: 0 auto;
+        }
+        #sidebarCollapse.active span:first-of-type {
+            transform: rotate(45deg) translate(2px, 2px);
+        }
+        #sidebarCollapse.active span:nth-of-type(2) {
+            opacity: 0;
+        }
+        #sidebarCollapse.active span:last-of-type {
+            transform: rotate(-45deg) translate(1px, -1px);
+        }
+        /* 80px and its content aligned to centre. Pushing it off the screen with the
+           negative left margin
+        */
+        #sidebar.active {
+            min-width: 80px;
+            max-width: 80px;
+            text-align: center;
+            margin-left: -80px !important;
+        }
+
+
+        /* Reappearing the sidebar on toggle button click */
+        #sidebar {
+            margin-left: 0; 
+        }
+
+
+        /* Toggling the sidebar header content, 
+           hide the big heading [h3] and showing the small heading [strong] and vice versa
+        */
+        #sidebar .sidebar-header strong {
+            display: none;
+        }
+        #sidebar.active .sidebar-header h3 {
+            display: none;
+        }
+        #sidebar.active .sidebar-header strong {
+            display: block;
+        }
+
+        /* Downsize the navigation links font size */
+        #sidebar.active ul li a {
+            padding: 20px 10px;
+            font-size: 0.85em;
+        }
+
+        #sidebar.active ul li a i {
+            margin-right:  0;
+            display: block;
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        /* Adjust the dropdown links padding*/
+        #sidebar.active ul ul a {
+            padding: 10px !important;
+        }
+
+        /* Changing the arrow position to bottom center position, 
+          translateX(50%) works with right: 50% 
+          to accurately  center the arrow */
+        .dropdown-toggle::after {
+            top: auto;
+            bottom: 10px;
+            right: 50%;
+            -webkit-transform: translateX(50%);
+            -ms-transform: translateX(50%);
+            transform: translateX(50%);
+        }
+    }
+
+     #sidebarCollapse {
+        width: 40px;
+        height: 40px;
+        background: whitesmoke;
+    }
+
+    #sidebarCollapse span {
+        width: 80%;
+        height: 2px;
+        margin: 0 auto;
+        display: block;
+        background: #555;
+        transition: all 0.8s cubic-bezier(0.810, -0.330, 0.345, 1.375);
+    }
+
+    #sidebarCollapse span:first-of-type {
+        /* rotate first one */
+        transform: rotate(45deg) translate(2px, 2px);
+    }
+    #sidebarCollapse span:nth-of-type(2) {
+        /* second one is not visible */
+        opacity: 0;
+    }
+    #sidebarCollapse span:last-of-type {
+        /* rotate third one */
+        transform: rotate(-45deg) translate(1px, -1px);
+    }
+
+    #sidebarCollapse.active span {
+        /* no rotation */
+        transform: none;
+        /* all bars are visible */
+        opacity: 1;
+        margin: 5px auto;
+    }
+    h1 {     
+        font-style: normal;
+        font-weight: 200;
+        font-size: 22px;
+        color: rgba(87, 87, 87, 0.85);
+        display: flex;
+        font-family: 'freight-sans-pro', sans-serif;
+        justify-content: center;
+        letter-spacing: 4px;
+        line-height: 27.2px;
+        max-width: 100%;
+        min-width: 0px;
+        opacity: 1;
+        word-break: keep-all;
+        padding: 34px 0px 25px 0px;
+        line-height: 27.2px;
+        margin: 0px;
+    }
+    h2 {
+        font-style:italic;
+        font-weight: 200;
+        font-size: 18px;
+        color: rgba(87, 87, 87, 0.85);
+        display: flex;
+        font-family: 'freight-sans-pro', sans-serif;
+        justify-content: center;
+        letter-spacing: 4px;
+        line-height: 27.2px;
+        max-width: 100%;
+        min-width: 0px;
+        opacity: 1;
+        word-break: keep-all;
+        padding: 34px 0px 25px 0px;
+        line-height: 27.2px;
+        margin: 0px;
+    }
+    nav {
+        list-style: none;
+        margin: 0;
+        padding: 50px 35px 20px 35px;
+        text-align: center;
+        justify-content: center;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 500;
+        letter-spacing: 3px;
+        max-width: 100%;
+        min-width: 0px;
+        word-break: keep-all;
+    }
+    nav li {
+        border-width:1px 0px;
+        padding-right: 20px;
+        display:inline-block;
+        font-family: 'freight-sans-pro', sans-serif;
+    }
+    nav a {
+        color: whitesmoke;
+        padding: 10px;
+        text-decoration: none;
+    }
+    h3 {
+        font-style:normal;
+        font-weight: 200;
+        color: whitesmoke;
+        display: flex;
+        font-family: 'freight-sans-pro', sans-serif;
+        justify-content: center;
+        letter-spacing: 4px;
+        line-height: 27.2px;
+        max-width: 100%;
+        min-width: 0px;
+        opacity: 1;
+        word-break: keep-all;
+        padding: 34px 0px 25px 0px;
+        line-height: 27.2px;
+        margin: 0px;
+    }
+     h4, p {
+            font-style:italic;
+            font-weight: 200;
+            color: whitesmoke;
+            display: flex;
+            font-family: 'freight-sans-pro', sans-serif;
+            justify-content: center;
+            letter-spacing: 4px;
+            line-height: 27.2px;
+            max-width: 100%;
+            min-width: 0px;
+            opacity: 1;
+            word-break: keep-all;
+            padding: 34px 0px 25px 0px;
+            line-height: 27.2px;
+            margin: 0px;
+    }
+</style>
