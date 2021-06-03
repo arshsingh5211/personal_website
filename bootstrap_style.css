@@ -1,8 +1,14 @@
 <style>
     body {background-color: whitesmoke;}
     .grid-container {
-          display: grid;
-}
+        display: grid;
+    }
+    .avatar {
+        vertical-align: middle;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+    }
     .row {
         padding: 20px;
         text-align: center;
@@ -54,7 +60,7 @@
         text-decoration: none;
     }
 
-     .fa {
+    .fa {
         padding: 10px 10px 10px 10px;
         margin: auto;
         font-size: 30px;
@@ -127,7 +133,6 @@
         opacity: 1;
         word-break: keep-all;
     }
-    
     footer {
         text-align: end;
     }
